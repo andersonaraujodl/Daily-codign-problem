@@ -6,7 +6,7 @@ For example, given[10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 Bonus: Can you do this in one pass ?
 
 Date: 07/04
-Time spent: From 22h10 to 22h22
+Time spent: 15min with bonus - after I realized what they meant with "one pass" (assuming it is in one loop interaction throught the list)
 */
 
 #include <list>
@@ -15,9 +15,7 @@ Time spent: From 22h10 to 22h22
 bool hasSum(std::list<int> myList, int k)
 {
 	for (std::list<int>::iterator it = myList.begin(); it != myList.end(); ++it)
-	{
 		if ((std::find(myList.begin(), myList.end(), k - *it) != myList.end())) return true;
-	}
 
 	return false;
 }
