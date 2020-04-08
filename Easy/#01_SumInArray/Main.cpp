@@ -12,19 +12,42 @@ Time spent: 15min with bonus - after I realized what they meant with "one pass" 
 #include <list>
 #include <iostream>
 
-bool hasSum(std::list<int> myList, int k)
+bool hasSum(const std::list<int>* myList, int k)
 {
-	for (std::list<int>::iterator it = myList.begin(); it != myList.end(); ++it)
-		if ((std::find(myList.begin(), myList.end(), k - *it) != myList.end())) return true;
+	if (myList->empty()) return false;
+	
+	for (std::list<int>::const_iterator it = myList->begin(); it != myList->end(); ++it)
+		if ((std::find(myList->begin(), myList->end(), k - *it) != myList->end())) return true;
 
 	return false;
 }
 
+void printResult(bool res, int k)
+{
+	char buff[50 + 1];
+	char aux[10 + 1];
+
+	if (!res)
+		strncpy_s(aux, "not ", sizeof(aux));
+	else
+		strncpy_s(aux, "", sizeof(aux));
+
+	snprintf(buff, sizeof(buff), "%i is %sformed by two values on the given List", k, aux);
+
+	std::cout << buff << std::endl;
+}
+
 int main()
 {
-	std::list<int> myList = { 11, 15, 7, 3 };
+	std::list<int> myFirstList;
+	std::list<int> mySecondList = { 11, 15, 7, 3 };
+	std::list<int> myThirdList = { 10, 15, 3, 7 };
+
 	int k = 17;
 
-	std::cout << hasSum(myList, k) << std::endl;
+	printResult(hasSum(&myFirstList, k), k);
+	printResult(hasSum(&mySecondList, k), k);
+	printResult(hasSum(&myThirdList, k), k);
+
 	return 0;
 }
