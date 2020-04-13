@@ -6,7 +6,7 @@ get_last(i): gets the ith last element from the log. i is guaranteed to be small
 You should be as efficient with time and space as possible.
 
 Date: 13/04/2020
-Time: 19h09 to 19h44
+Time: 19h09 to 20h00
 */
 #include <iostream>
 #include <list>
@@ -33,7 +33,7 @@ public:
 	{
 		if (++currentSize > size)
 		{
-			std::cout << "Max capacity reached" << std::endl;
+			orderIDs.pop_front();
 			return;
 		}
 
