@@ -20,22 +20,26 @@ typedef struct ClassInterval
 
 int checkIntersections(class_interval_t intervals[], int size)
 {
-	if (size <= 0)
-		return 0;
+	if (size == 0 || size == 1)
+		return size;
 
 	int numOfRooms = 1;
 
-	for (int i = 0; i < size; ++i)
+	for (int i = 1; i < size; ++i)
 	{
+		int intersections = 0;
+
 		for (int j = 0; j < size; ++j)
 		{
-			if (j <= i)
-				continue;
-
 			if (intervals[i].begin >= intervals[j].begin && intervals[i].begin <= intervals[j].end)
 			{
-				++i;
+				++intersections;
+			}
+
+			if (intersections >= numOfRooms)
+			{
 				++numOfRooms;
+				break;
 			}
 		}
 	}
@@ -46,7 +50,20 @@ int checkIntersections(class_interval_t intervals[], int size)
 #ifdef _21_NumberOfRooms
 int main()
 {
-	class_interval_t intervals[] = { { 30, 75 }, { 0, 50 }, { 60, 150 }};
+/*
+		30------------------ - 75 - 3
+0----------50 - 2
+		        60------------------150 - 4
+  20-------- 55 - 4
+		                            150------170 - 2
+		                                     170----180 - 2
+		                                         175---185 - 3
+													   185---190 - 3
+0-----------------------------------------------------------189 - 1
+
+*/
+
+	class_interval_t intervals[] = { {30,75}, {0,50}, {60,150}, {20,55}, {150, 170}, {170, 180}, {175, 185}, {185, 190}, {1, 189} };
 	
 	std::cout << checkIntersections(intervals, ARRAY_SIZE(intervals)) << std::endl;
 
