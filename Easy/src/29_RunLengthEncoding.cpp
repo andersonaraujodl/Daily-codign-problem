@@ -5,7 +5,7 @@ Implement run-length encoding and decoding. You can assume the string to be enco
 
 Date: 01/05/2020
 Keywords: Run-lengh; Encoding
-Time: 35min
+Time: 47min (after fixes)
 */
 #include "const.h"
 #include <string>
@@ -20,7 +20,7 @@ std::string encode(std::string c)
 		return "1" + c;
 
 	int count = 0;
-	std::string result = "";
+	std::string result;
 	char currentChar = c[0];
 
 	for (size_t i = 0; i < c.size(); ++i)
@@ -42,14 +42,20 @@ std::string encode(std::string c)
 
 std::string decode(std::string c)
 {
-	std::string result = "";
+	std::string result;
+	std::string counter;
 
 	for (size_t i = 0; i < c.size(); ++i)
 	{
 		if (isdigit(c[i]))
 		{
-			for (size_t j = 0; j < atoi(&c[i]); ++j)
-				result += c[i + 1];
+			counter += c[i];
+		}
+		else
+		{
+			int totalChars = atoi(counter.c_str());
+			result += std::string(totalChars, c[i]);
+			counter = "";
 		}
 	}
 
@@ -60,9 +66,14 @@ std::string decode(std::string c)
 int main()
 {
 	std::string a = "AAAABBBCCDAA";
+	std::string b = "AABBABCECDAA";
+	std::string c = "FHHHHHHHHHHHHIKKWPAA";
 
 	std::cout << encode(a) << std::endl;
 	std::cout << decode(encode(a)) << std::endl;
+
+	/*std::cout << encode(b) << std::endl;
+	std::cout << decode(encode(b)) << std::endl;*/
 
 	return 0;
 }
