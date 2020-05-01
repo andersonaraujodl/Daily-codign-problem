@@ -143,6 +143,7 @@
     <ClCompile Include="src\16_LastOrders.cpp" />
     <ClCompile Include="src\20_IntersectNode.cpp" />
     <ClCompile Include="src\21_NumberOfRooms.cpp" />
+    <ClCompile Include="src\29_RunLengthEncoding.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

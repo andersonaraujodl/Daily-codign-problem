@@ -4,4 +4,5 @@
 //#define 08_UnivalTree
 //#define 16_LastOrders
 //#define _20_IntersectNode
-#define _21_NumberOfRooms
+//#define _21_NumberOfRooms
+#define _29_RunLengthEncoding

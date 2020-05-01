@@ -1,4 +1,0 @@
-C:\Users\Danilo Lapiccirella\Documents\Projetos\Studies\Daily Cording Problem\Daily-codign-problem\Easy\1_SumInArray\Debug\1_SumInArray.exe
-C:\Users\Danilo Lapiccirella\Documents\Projetos\Studies\Daily Cording Problem\Daily-codign-problem\Easy\1_SumInArray\Debug\1_SumInArray.pdb
-C:\Users\Danilo Lapiccirella\Documents\Projetos\Studies\Daily Cording Problem\Daily-codign-problem\Easy\#01_SumInArray\Debug\1_SumInArray.exe
-C:\Users\Danilo Lapiccirella\Documents\Projetos\Studies\Daily Cording Problem\Daily-codign-problem\Easy\#01_SumInArray\Debug\1_SumInArray.pdb

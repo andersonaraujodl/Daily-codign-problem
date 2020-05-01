@@ -30,5 +30,8 @@
     <ClCompile Include="src\20_IntersectNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\29_RunLengthEncoding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
