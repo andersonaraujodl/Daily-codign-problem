@@ -7,6 +7,7 @@ Date: 01/05/2020
 Keywords: Run-lengh; Encoding
 Time: 47min (after fixes)
 */
+
 #include "const.h"
 #include <string>
 #include <iostream>
@@ -72,8 +73,11 @@ int main()
 	std::cout << encode(a) << std::endl;
 	std::cout << decode(encode(a)) << std::endl;
 
-	/*std::cout << encode(b) << std::endl;
-	std::cout << decode(encode(b)) << std::endl;*/
+	std::cout << encode(b) << std::endl;
+	std::cout << decode(encode(b)) << std::endl;
+
+	std::cout << encode(c) << std::endl;
+	std::cout << decode(encode(c)) << std::endl;
 
 	return 0;
 }
