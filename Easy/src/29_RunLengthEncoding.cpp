@@ -5,10 +5,11 @@ Implement run-length encoding and decoding. You can assume the string to be enco
 
 Date: 01/05/2020
 Keywords: Run-lengh; Encoding
-Time: from 16:15 to
+Time: 35min
 */
-#include <iostream>
+#include "const.h"
 #include <string>
+#include <iostream>
 
 std::string encode(std::string c)
 {
@@ -47,7 +48,7 @@ std::string decode(std::string c)
 	{
 		if (isdigit(c[i]))
 		{
-			for (size_t j = 0; j < (int)c[i]; ++j)
+			for (size_t j = 0; j < atoi(&c[i]); ++j)
 				result += c[i + 1];
 		}
 	}
