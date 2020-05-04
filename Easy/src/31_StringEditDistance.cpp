@@ -61,9 +61,14 @@ int main()
 	std::string g = "winter";
 	std::string h = "summer";
 
+	std::string i = "act";
+	std::string j = "fact";
+
 	std::cout << CalculateEditDistance(a, b) << std::endl;
 	std::cout << CalculateEditDistance(c, d) << std::endl;
 	std::cout << CalculateEditDistance(e, f) << std::endl;
+	std::cout << CalculateEditDistance(g, h) << std::endl;
+	std::cout << CalculateEditDistance(i, j) << std::endl;
 
 	return 0;
 }
