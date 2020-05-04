@@ -25,11 +25,8 @@ int CalculateEditDistance(std::string a, std::string b)
 		return aSize;
 
 	//Check if one contains the other
-	if (a.find(b) != std::string::npos)
-		return aSize - bSize;
-
-	if (b.find(a) != std::string::npos)
-		return bSize - aSize;
+	if (a.find(b) != std::string::npos || b.find(a) != std::string::npos)
+		return abs(aSize - bSize);
 
 	int smaller = (aSize > bSize) ? bSize : aSize;
 
