@@ -5,4 +5,5 @@
 //#define 16_LastOrders
 //#define _20_IntersectNode
 //#define _21_NumberOfRooms
-#define _29_RunLengthEncoding
+//#define _29_RunLengthEncoding
+#define _31_StringEditDistance
