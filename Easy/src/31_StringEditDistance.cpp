@@ -11,12 +11,21 @@ Time: From 18:22 to 19:01 = 39min (considering all lowercase or uppercase)
 #include <string>
 #include "const.h"
 
-int CalculateEditDistance(std::string a, std::string b)
+int min(int a, int b) {
+	if (a < b)
+		return a;
+	else
+		return b;
+}
+
+int minimum(int a, int b, int c) {
+	return min(min(a, b), c);
+}
+
+int CalculateEditDistance(std::string a, int aSize, std::string b, int bSize)
 {
 	//Assuming they will be all lowercase or all uppercase
-
-	int aSize = a.length();
-	int bSize = b.length();
+	int cost = 0;
 
 	if (aSize == 0)
 		return bSize;
@@ -30,18 +39,17 @@ int CalculateEditDistance(std::string a, std::string b)
 
 	int smaller = (aSize > bSize) ? bSize : aSize;
 
-	int editDistance = 0;
+	//After learning about the levenshtein algorithim, that's the opmized solution:
+	/* test if last characters of the strings match */
+	if (a[aSize - 1] == b[bSize- 1])
+		cost = 0;
+	else
+		cost = 1;
 
-	for (int i = 0; i < smaller; ++i)
-	{
-		//Doesn't matter if you are gonna move or change the letter, it counts the same way
-		if (a[i] != b[i])
-			++editDistance;
-	}
-
-	editDistance += abs(aSize - bSize);
-
-	return editDistance;
+	/* return minimum of delete char from s, delete char from t, and delete char from both */
+	return minimum(CalculateEditDistance(a, aSize - 1, b, bSize) + 1,
+		CalculateEditDistance(a, aSize, b, bSize - 1) + 1,
+		CalculateEditDistance(a, aSize - 1, b, bSize - 1) + cost);
 }
 #ifdef _31_StringEditDistance
 int main()
@@ -55,17 +63,21 @@ int main()
 	std::string e = "fac";
 	std::string f = "art";
 
-	std::string g = "winter";
+	std::string g = "lastwinter";
 	std::string h = "summer";
 
 	std::string i = "act";
 	std::string j = "fact";
 
-	std::cout << CalculateEditDistance(a, b) << std::endl;
-	std::cout << CalculateEditDistance(c, d) << std::endl;
-	std::cout << CalculateEditDistance(e, f) << std::endl;
-	std::cout << CalculateEditDistance(g, h) << std::endl;
-	std::cout << CalculateEditDistance(i, j) << std::endl;
+	std::string k = "keep";
+	std::string l = "sweeper";
+
+	std::cout << CalculateEditDistance(a, a.length(), b, b.length()) << std::endl;
+	std::cout << CalculateEditDistance(c, c.length(), d, d.length()) << std::endl;
+	std::cout << CalculateEditDistance(e, e.length(), f, f.length()) << std::endl;
+	std::cout << CalculateEditDistance(g, g.length(), h, h.length()) << std::endl;
+	std::cout << CalculateEditDistance(i, i.length(), j, j.length()) << std::endl;
+	std::cout << CalculateEditDistance(k, k.length(), l, l.length()) << std::endl;
 
 	return 0;
 }
