@@ -12,6 +12,7 @@ Time: 15:20 to 16h35 + 20min of optimization
 
 #include <iostream>
 #include <stdexcept>
+#include "const.h"
 
 template <typename T>
 class Stack
@@ -124,6 +125,7 @@ public:
 	}
 };
 
+#ifdef _43_Stack
 int main()
 {
 	Stack<int> stack;
@@ -150,3 +152,4 @@ int main()
 	stack.push_back(1);
 	stack.print();
 }
+#endif
