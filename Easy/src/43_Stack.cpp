@@ -7,10 +7,11 @@ max(), which returns the maximum value in the stack currently. If there are no e
 Each method should run in constant time.
 
 Date: 17/05/2020
-Time: 15:20 to 
+Time: 15:20 to 16h35 + 20min of optimization
 */
 
 #include <iostream>
+#include <stdexcept>
 
 template <typename T>
 class Stack
@@ -35,15 +36,13 @@ public:
 	{
 		return currentIndex;
 	}
-
-	//For debug purpose: Overload oprator [] to return the Nth element of the stack
-	T& operator[](int index) const
+	
+	void print() const
 	{
-		if (index > (currentIndex - 1) || index < 0)
-		{
-			std::cout << "Index out of Range" << std::endl;
-		}
-		return elements[index];
+		std::cout << std::endl << "Stack:" << std::endl;
+
+		for (int i = 0; i < currentIndex; ++i)
+			std::cout << elements[i] << std::endl;
 	}
 
 	void push_back(const T& value)
@@ -70,20 +69,49 @@ public:
 			}
 
 			elements = temp;
+			//delete temp;
 		}
 
 		++currentIndex;
 		--freeSpace;
 	}
 
-	void  pop()
+	T&  pop()
 	{
+		T popedValue = elements[0];
 
+		for (int i = 0; i < currentIndex; ++i)
+			elements[i] = std::move(elements[i + 1]);
+
+		--currentIndex;
+		
+		return popedValue;
 	}
 
-	void max()
+	T& max()
 	{
+		try
+		{
+			if (currentIndex == 0)
+				throw - 1;
 
+				T maxValue;
+				maxValue = elements[0];
+
+				for (int i = 1; i < currentIndex; ++i)
+				{
+					if (elements[i] > maxValue)
+						maxValue = elements[i];
+				}
+
+				std::cout << std::endl << "Max Value:" << maxValue << std::endl; //brought here otherwise it would print garbage when exception is thrown
+
+				return maxValue;
+		}
+		catch (const int err)
+		{
+			std::cout << "Empty Stack!" << std::endl;
+		}
 	}
 
 	void clear()
@@ -99,13 +127,26 @@ public:
 int main()
 {
 	Stack<int> stack;
+	
+	stack.max();
 
+	stack.push_back(6);
+	stack.push_back(4);
+	stack.push_back(3);
+	stack.push_back(5);
 	stack.push_back(2);
-	stack.push_back(-5);
-	stack.push_back(10);
+	stack.push_back(1);
 
-	std::cout << "size: " << stack.size() << std::endl;
+	stack.max();
+	std::cout << "Size: " << stack.size() << std::endl;
 
-	for (int i = 0; i < stack.size(); ++i)
-		std::cout << stack[i] << std::endl;
+	stack.print();
+
+	stack.max();
+	std::cout << "Poped Value: " << stack.pop() << std::endl;
+	stack.max();
+	std::cout << "Size: " << stack.size() << std::endl;
+
+	stack.push_back(1);
+	stack.print();
 }
