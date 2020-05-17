@@ -7,4 +7,5 @@
 //#define _21_NumberOfRooms
 //#define _29_RunLengthEncoding
 //#define _31_StringEditDistance
-#define _33_Median
+//#define _33_Median
+#define _43_Stack

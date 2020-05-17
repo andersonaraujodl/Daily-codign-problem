@@ -13,7 +13,7 @@ For example, given the sequence[2, 1, 5, 7, 2, 0, 5], your algorithm should prin
 2
 
 date: 10/05/2020
-Time: ?
+Time: 25 (wrong answer) + 15min to fix it using vector lib.
 
 */
 
@@ -31,7 +31,6 @@ void GetMedians(std::vector<int> disordSequence)
 		std::cout << disordSequence.front();
 
 	std::vector<int> orderSequence;
-
 
 	for (std::vector<int>::iterator it = disordSequence.begin(); it != disordSequence.end(); ++it)
 	{

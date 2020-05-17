@@ -146,6 +146,7 @@
     <ClCompile Include="src\29_RunLengthEncoding.cpp" />
     <ClCompile Include="src\31_StringEditDistance.cpp" />
     <ClCompile Include="src\33_Median.cpp" />
+    <ClCompile Include="src\43_Stack.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
