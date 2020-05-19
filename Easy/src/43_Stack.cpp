@@ -7,7 +7,7 @@ max(), which returns the maximum value in the stack currently. If there are no e
 Each method should run in constant time.
 
 Date: 17/05/2020
-Time: 15:20 to 16h35 + 20min of optimization
+Time: 15:20 to 16h35 + 35min of optimization
 */
 
 #include <iostream>
@@ -18,9 +18,9 @@ template <typename T>
 class Stack
 {
 	T* elements = nullptr;
-	int currentIndex = 0;
+	int stackSize = 0;
 	int freeSpace = 0;
-	const int allocSize = 10000 / sizeof(T);
+	const int allocSize = 100 / sizeof(T); //for test purpose, this values must vary according to its application
 
 public:
 	Stack()
@@ -33,36 +33,40 @@ public:
 		clear();
 	}
 
+
 	int size()
 	{
-		return currentIndex;
+		return stackSize;
 	}
 	
+	//for debug purpose only
 	void print() const
 	{
 		std::cout << std::endl << "Stack:" << std::endl;
 
-		for (int i = 0; i < currentIndex; ++i)
+		for (int i = 0; i < stackSize; ++i)
+		{
 			std::cout << elements[i] << std::endl;
+		}
 	}
 
-	void push_back(const T& value)
+	void push(const T& value)
 	{
 		if (freeSpace)
 		{
-			elements[currentIndex] = value;
+			elements[stackSize] = value;
 		}
 		else
 		{
 			freeSpace = allocSize;
-			T* temp = new T[currentIndex + allocSize];
+			T* temp = new T[stackSize + allocSize];
 
-			for (int i = 0; i < currentIndex; ++i)
+			for (int i = 0; i < stackSize; ++i)
 			{
 				temp[i] = std::move(elements[i]);
 			}
 
-			temp[currentIndex] = value;
+			temp[stackSize] = value;
 
 			if (elements)
 			{
@@ -70,48 +74,74 @@ public:
 			}
 
 			elements = temp;
-			//delete temp;
 		}
 
-		++currentIndex;
+		++stackSize;
 		--freeSpace;
 	}
 
 	T&  pop()
 	{
-		T popedValue = elements[0];
+		try
+		{
+			if (stackSize == 0)
+			{
+				throw - 1;
+			}
 
-		for (int i = 0; i < currentIndex; ++i)
-			elements[i] = std::move(elements[i + 1]);
+			T popedValue = elements[--stackSize];
 
-		--currentIndex;
-		
-		return popedValue;
+			if (stackSize % allocSize == 0)
+			{
+				freeSpace = 0;
+
+				T* temp = new T[stackSize];
+
+				for (int i = 0; i < stackSize; ++i)
+				{
+					temp[i] = std::move(elements[i]);
+				}
+			}
+			else
+			{
+				++freeSpace;
+			}
+
+			return popedValue;
+		}
+		catch (const int err)
+		{
+			std::cout << "Can't Pop: Empty Stack!" << std::endl;
+		}
 	}
 
 	T& max()
 	{
 		try
 		{
-			if (currentIndex == 0)
+			if (stackSize == 0)
+			{
 				throw - 1;
+			}
 
-				T maxValue;
-				maxValue = elements[0];
+			T maxValue;
+			maxValue = elements[0];
 
-				for (int i = 1; i < currentIndex; ++i)
+			for (int i = 1; i < stackSize; ++i)
+			{
+				if (elements[i] > maxValue)
 				{
-					if (elements[i] > maxValue)
-						maxValue = elements[i];
+					maxValue = elements[i];
 				}
+			}
 
-				std::cout << std::endl << "Max Value:" << maxValue << std::endl; //brought here otherwise it would print garbage when exception is thrown
+			std::cout << std::endl << "Max Value:" << maxValue << std::endl; //put this here to avoid print garbage when exception is thrown
 
-				return maxValue;
+			return maxValue;
 		}
 		catch (const int err)
 		{
-			std::cout << "Empty Stack!" << std::endl;
+			std::cout << "Can't find Max value: Empty Stack!" << std::endl;
 		}
 	}
 
@@ -121,7 +151,7 @@ public:
 		{
 			delete[] elements;
 		}
-		currentIndex = 0;
+		stackSize = 0;
 	}
 };
 
@@ -129,15 +159,16 @@ public:
 int main()
 {
 	Stack<int> stack;
-	
+
+	stack.pop();
 	stack.max();
 
-	stack.push_back(6);
-	stack.push_back(4);
-	stack.push_back(3);
-	stack.push_back(5);
-	stack.push_back(2);
-	stack.push_back(1);
+	stack.push(6);
+	stack.push(4);
+	stack.push(3);
+	stack.push(5);
+	stack.push(2);
+	stack.push(1);
 
 	stack.max();
 	std::cout << "Size: " << stack.size() << std::endl;
@@ -146,10 +177,13 @@ int main()
 
 	stack.max();
 	std::cout << "Poped Value: " << stack.pop() << std::endl;
+
+	stack.print();
+
 	stack.max();
 	std::cout << "Size: " << stack.size() << std::endl;
 
-	stack.push_back(1);
+	stack.push(1);
 	stack.print();
 }
 #endif
