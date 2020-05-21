@@ -13,9 +13,9 @@ int rand5()
 {
 	std::random_device rd;
 	std::mt19937 mt(rd());
-	std::uniform_real_distribution<float> rand(1.0, 5.0);
+	std::uniform_int_distribution<int> rand(1, 5);
 
-	int i = (int)rand(rd);
+	int i = rand(rd);
 
 	std::cout << "Rand 5: " << i << std::endl;
 	return i;
