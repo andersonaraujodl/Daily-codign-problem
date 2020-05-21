@@ -10,7 +10,6 @@ Date: 17/05/2020
 Time: 15:20 to 16h35 + 35min of optimization
 */
 
-#include <iostream>
 #include <stdexcept>
 #include "const.h"
 

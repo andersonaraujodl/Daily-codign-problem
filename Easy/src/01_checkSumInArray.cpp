@@ -10,7 +10,6 @@ Time spent: 15min with bonus - after I realized what they meant with "one pass" 
 */
 
 #include <list>
-#include <iostream>
 #include "const.h"
 
 bool hasSum(const std::list<int>* myList, int k)

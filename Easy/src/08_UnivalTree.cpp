@@ -15,7 +15,6 @@ For example, the following tree has 5 unival subtrees:
 Date: 03/04/2020
 */
 
-#include <iostream>
 #include "const.h";
 
 using namespace std;

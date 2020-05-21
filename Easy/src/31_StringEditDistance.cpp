@@ -7,7 +7,6 @@ Date: 04/05/2020
 Time: From 18:22 to 19:01 = 39min (considering all lowercase or uppercase)
 */
 
-#include <iostream>
 #include <string>
 #include "const.h"
 

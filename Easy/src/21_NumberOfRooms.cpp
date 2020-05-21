@@ -8,7 +8,6 @@ Total Time: 25min
 */
 
 #include<list>
-#include <iostream>
 #include "const.h"
 
 #define ARRAY_SIZE(array) (sizeof((array))/sizeof((array[0])))

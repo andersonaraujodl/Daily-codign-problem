@@ -9,7 +9,6 @@ Date: 13/04/2020
 Time: 19h09 to 20h00
 */
 #include <list>
-#include <iostream>
 #include "const.h"
 
 class Log

@@ -10,7 +10,6 @@ Time: 47min (after fixes)
 
 #include "const.h"
 #include <string>
-#include <iostream>
 
 std::string encode(std::string c)
 {

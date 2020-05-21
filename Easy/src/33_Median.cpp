@@ -18,7 +18,6 @@ Time: 25 (wrong answer) + 15min to fix it using vector lib.
 */
 
 #include <vector> 
-#include <iostream>
 #include <algorithm>
 #include "const.h"
 

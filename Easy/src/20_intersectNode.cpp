@@ -10,7 +10,6 @@ Do this in O(M + N) time (where M and N are the lengths of the lists) and consta
 Date: 15/04/2020
 */
 
-#include <iostream>
 #include "const.h"
 
 class SingleLinkedList
