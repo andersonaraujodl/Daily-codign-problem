@@ -11,4 +11,5 @@
 //#define _31_StringEditDistance
 //#define _33_Median
 //#define _43_Stack
-#define _45_Rand
+//#define _45_Rand
+#define _47_Max_Stock_Profit

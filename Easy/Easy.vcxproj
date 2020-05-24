@@ -148,6 +148,7 @@
     <ClCompile Include="src\33_Median.cpp" />
     <ClCompile Include="src\43_Stack.cpp" />
     <ClCompile Include="src\45_Rand.cpp" />
+    <ClCompile Include="src\47_max_stock_profit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

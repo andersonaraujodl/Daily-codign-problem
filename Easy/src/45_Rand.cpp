@@ -6,7 +6,6 @@ Time: 23:45 to 00:10 + 15 minutos to some optimization
 */
 #include "const.h"
 #include <random>
-#include <iostream>
 
 //Created my rand5 funcion using <radom>
 int rand5()

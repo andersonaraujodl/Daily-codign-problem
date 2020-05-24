@@ -45,5 +45,8 @@
     <ClCompile Include="src\45_Rand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\47_max_stock_profit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
