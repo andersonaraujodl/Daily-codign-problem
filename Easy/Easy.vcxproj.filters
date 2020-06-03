@@ -45,10 +45,13 @@
     <ClCompile Include="src\45_Rand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\47_max_stock_profit.cpp">
+    <ClCompile Include="src\55_URL_Shortener.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\50_arithmetic_tree.cpp">
+    <ClCompile Include="src\47_MaxStockProfit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\50_ArithmeticTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

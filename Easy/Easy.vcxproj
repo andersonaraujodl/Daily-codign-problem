@@ -148,8 +148,9 @@
     <ClCompile Include="src\33_Median.cpp" />
     <ClCompile Include="src\43_Stack.cpp" />
     <ClCompile Include="src\45_Rand.cpp" />
-    <ClCompile Include="src\47_max_stock_profit.cpp" />
-    <ClCompile Include="src\50_arithmetic_tree.cpp" />
+    <ClCompile Include="src\47_MaxStockProfit.cpp" />
+    <ClCompile Include="src\50_ArithmeticTree.cpp" />
+    <ClCompile Include="src\55_URL_Shortener.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
