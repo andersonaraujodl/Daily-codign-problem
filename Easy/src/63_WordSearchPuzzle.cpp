@@ -15,9 +15,8 @@ Time: 20h20 to 21:10 - 50min :( + 15min of fixes and improvement.
 
 #include "const.h"
 #include <string>
-#include <cstddef>
 
-bool FindWord(int row, int col, char letterBoard[][7], std::string word)
+bool FindWordByFirstLetter(int row, int col, char letterBoard[][7], std::string word)
 {
     int wordSize = word.size();
     int correctChars = 1;
@@ -46,9 +45,10 @@ bool FindWord(int row, int col, char letterBoard[][7], std::string word)
     return false;
 }
 
-bool FindFirstLetter(int row, int col, char letterBoard[][7], std::string word)
+bool FindWord(int row, int col, char letterBoard[][7], std::string word)
 {
-    bool hasWord = false;
+    if (word.size() > row && word.size() > col)
+        return false;
 
     for (int i = 0; i < row; ++i)
     {
@@ -56,9 +56,7 @@ bool FindFirstLetter(int row, int col, char letterBoard[][7], std::string word)
         {
             if (word[0] == letterBoard[i][j])
             {
-                hasWord = FindWord(i, j, letterBoard, word);
-
-                if (hasWord)
+                if (FindWordByFirstLetter(i, j, letterBoard, word))
                     return true;
             }
         }
@@ -66,7 +64,6 @@ bool FindFirstLetter(int row, int col, char letterBoard[][7], std::string word)
 
     return false;
 }
-
 
 int main()
 {
@@ -81,52 +78,58 @@ int main()
         {'R', 'T', 'E', 'H', 'W', 'Q', 'I'},
     };
 
+    std::string anderson = "ANDERSON";
     std::string foam = "FOAM";
     std::string love = "LOVE";
     std::string pare = "PARE";
-    std::string agky = "AGKY";
+    std::string dla = "DLA";
     std::string sleep = "SLEEP";
     std::string door = "DOOR";
     std::string mass = "MASS";
     std::string doora = "DOORA";
 
-    if (FindFirstLetter(7, 7, letterBoard, foam))
+    if (FindWord(7, 7, letterBoard, anderson))
+        std::cout << anderson << " was found on the board!" << std::endl;
+    else
+        std::cout << anderson << " was not found on the board!" << std::endl;
+
+    if (FindWord(7, 7, letterBoard, foam))
         std::cout << foam << " was found on the board!" << std::endl;
     else
         std::cout << foam << " was not found on the board!" << std::endl;
 
 
-    if (FindFirstLetter(7, 7, letterBoard, love))
+    if (FindWord(7, 7, letterBoard, love))
         std::cout << love << " was found on the board!" << std::endl;
     else
         std::cout << love << " was not found on the board!" << std::endl;
 
-    if (FindFirstLetter(7, 7, letterBoard, pare))
+    if (FindWord(7, 7, letterBoard, pare))
         std::cout << pare << " was found on the board!" << std::endl;
     else
         std::cout << pare << " was not found on the board!" << std::endl;
 
-    if (FindFirstLetter(7, 7, letterBoard, agky))
-        std::cout << agky << " was found on the board!" << std::endl;
+    if (FindWord(7, 7, letterBoard, dla))
+        std::cout << dla << " was found on the board!" << std::endl;
     else
-        std::cout << agky << " was not found on the board!" << std::endl;
+        std::cout << dla << " was not found on the board!" << std::endl;
 
-    if (FindFirstLetter(7, 7, letterBoard, sleep))
+    if (FindWord(7, 7, letterBoard, sleep))
         std::cout << sleep << " was found on the board!" << std::endl;
     else
         std::cout << sleep << " was not found on the board!" << std::endl;
 
-    if (FindFirstLetter(7, 7, letterBoard, door))
+    if (FindWord(7, 7, letterBoard, door))
         std::cout << door << " was found on the board!" << std::endl;
     else
         std::cout << door << " was not found on the board!" << std::endl;
 
-    if (FindFirstLetter(7, 7, letterBoard, mass))
+    if (FindWord(7, 7, letterBoard, mass))
         std::cout << mass << " was found on the board!" << std::endl;
     else
         std::cout << mass << " was not found on the board!" << std::endl;
 
-    if (FindFirstLetter(7, 7, letterBoard, doora))
+    if (FindWord(7, 7, letterBoard, doora))
         std::cout << doora << " was found on the board!" << std::endl;
     else
         std::cout << doora << " was not found on the board!" << std::endl;
