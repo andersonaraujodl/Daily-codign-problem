@@ -20,7 +20,7 @@ from 19h56 to
 void ProductArrayWithDivision(int * arr, int size)
 {
 	if (size == 1)
-		std::cout << "0" << std::endl;
+		std::cout << "The output array is: 0" << std::endl;
 
 	int product = 1;
 
@@ -38,32 +38,19 @@ void ProductArrayWithDivision(int * arr, int size)
 		std::cout << productArr[i] << std::endl;
 }
 
-void ProductArrayWithDivision(int* arr, int size)
+void ProductArrayWithoutDivision(int* arr, int size)
 {
-	if (size == 1)
-		std::cout << "0" << std::endl;
-
-	int product = 1;
-
-	for (int i = 0; i < size; ++i)
-		product *= arr[i];
-
-	int* productArr = new int[size];
-
-	//Add result to temp Array
-	for (int i = 0; i < size; ++i)
-		productArr[i] = product / arr[i];
-
-	//Print result
-	for (int i = 0; i < size; ++i)
-		std::cout << productArr[i] << std::endl;
+	//TODO
 }
 
 #ifdef _02_ArrayOfProducts
 int main()
 {
-	int arr[] = { 1, 2, 3, 4, 5 };
+	int firstTest[] = { 1, 2, 3, 4, 5 };
+	int secondTest[] = { 3, 2, 1 };
 
-	ProductArrayWithDivision(arr, ARRAY_SIZE(arr));
+	ProductArrayWithDivision(firstTest, ARRAY_SIZE(firstTest));
+
+	ProductArrayWithDivision(secondTest, ARRAY_SIZE(secondTest));
 }
 #endif
