@@ -9,7 +9,7 @@ Follow - up: what if you can't use division?
 
 Date: 08/06/2020
 Time: from 19h26 to 19h52 //with division
-from 19h56 to 
+from 20h55 to 20h20 //without division, after reading someone's guidance online
 */
 
 #include <algorithm>
@@ -40,7 +40,31 @@ void ProductArrayWithDivision(int * arr, int size)
 
 void ProductArrayWithoutDivision(int* arr, int size)
 {
-	//TODO
+	int* ascendingArr = new int[size];
+
+	int product = 1;
+	for (int i = 0; i < size; ++i)
+	{
+		ascendingArr[i] = product;
+		product *= arr[i];
+	}
+
+	int* descendingArr = new int[size];
+
+	product = 1;
+	for (int i = size-1; i >= 0; --i)
+	{
+		descendingArr[i] = product;
+		product *= arr[i];
+	}
+
+	int* products = new int[size];
+
+	for (int i = 0; i < size; ++i)
+	{
+		products[i] = ascendingArr[i] * descendingArr[i];
+		std::cout << products[i] << std::endl;
+	}
 }
 
 #ifdef _02_ArrayOfProducts
@@ -49,8 +73,18 @@ int main()
 	int firstTest[] = { 1, 2, 3, 4, 5 };
 	int secondTest[] = { 3, 2, 1 };
 
+	std::cout << "With Division: " << std::endl;
 	ProductArrayWithDivision(firstTest, ARRAY_SIZE(firstTest));
 
+	std::cout << std::endl;
+
 	ProductArrayWithDivision(secondTest, ARRAY_SIZE(secondTest));
+
+	std::cout << std::endl << "Without Division: " << std::endl;
+	ProductArrayWithoutDivision(firstTest, ARRAY_SIZE(firstTest));
+
+	std::cout << std::endl;
+
+	ProductArrayWithoutDivision(secondTest, ARRAY_SIZE(secondTest));
 }
 #endif
