@@ -1,4 +1,6 @@
 /*
+63 - EASY
+
 Given a 2D matrix of characters and a target word, write a function that returns whether the word can be found in the matrix by going left-to-right, or up-to-down.
 
 For example, given the following matrix:
@@ -29,6 +31,9 @@ bool FindWordByFirstLetter(int row, int col, char letterBoard[][7], std::string 
 
         ++correctChars;
     }
+
+    if (correctChars == wordSize)
+        return true;
 
     //search by col
     for (int i = 1; i < wordSize; ++i)
@@ -65,6 +70,7 @@ bool FindWord(int row, int col, char letterBoard[][7], std::string word)
     return false;
 }
 
+#ifdef _63_Word_Search
 int main()
 {
     char letterBoard[7][7] =
@@ -135,3 +141,4 @@ int main()
         std::cout << doora << " was not found on the board!" << std::endl;
 
 }
+#endif

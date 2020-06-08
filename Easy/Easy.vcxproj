@@ -23,6 +23,7 @@
     <ProjectGuid>{1E5FF9E9-9CB2-4B7D-9AD8-78098193FC9E}</ProjectGuid>
     <RootNamespace>Easy</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Daily Coding Problem</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\01_CheckSumInArray.cpp" />
+    <ClCompile Include="src\02_ArrayOfProducts.cpp" />
     <ClCompile Include="src\08_UnivalTree.cpp" />
     <ClCompile Include="src\16_LastOrders.cpp" />
     <ClCompile Include="src\20_IntersectNode.cpp" />

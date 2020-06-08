@@ -57,5 +57,8 @@
     <ClCompile Include="src\63_WordSearchPuzzle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\02_ArrayOfProducts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

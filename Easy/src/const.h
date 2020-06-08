@@ -3,6 +3,7 @@
 #include <iostream>
 
 //#define 01_CheckSumInArray
+#define _02_ArrayOfProducts
 //#define 08_UnivalTree
 //#define 16_LastOrders
 //#define _20_IntersectNode
@@ -15,4 +16,4 @@
 //#define _47_Max_Stock_Profit
 //#define _50_Arithmetic_Tree
 //#define _55_URL_Shrotener
-#define _63_Word_Search
+//#define _63_Word_Search

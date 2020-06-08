@@ -1,4 +1,6 @@
 /*
+55 - EASY
+
 Implement a URL shortener with the following methods:
 
 shorten(url), which shortens the url into a six-character alphanumeric string, such as zLg6wl.
