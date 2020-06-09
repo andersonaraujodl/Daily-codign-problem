@@ -17,7 +17,7 @@ from 20h55 to 20h20 //without division, after reading someone's guidance online
 
 #define ARRAY_SIZE(array) (sizeof(array)/sizeof(array[0]))
 
-void ProductArrayWithDivision(int * arr, int size)
+void ProductArrayWithDivision(int * arr, int * result, int size)
 {
 	if (size == 1)
 		std::cout << "The output array is: 0" << std::endl;
@@ -27,18 +27,13 @@ void ProductArrayWithDivision(int * arr, int size)
 	for (int i = 0; i < size; ++i)
 		product *= arr[i];
 
-	int* productArr = new int[size];
-
-	//Add result to temp Array
+	//Add result to result Array
 	for (int i = 0; i < size; ++i)
-		productArr[i] = product/arr[i];
+		result[i] = product /arr[i];
 
-	//Print result
-	for (int i = 0; i < size; ++i)
-		std::cout << productArr[i] << std::endl;
 }
 
-void ProductArrayWithoutDivision(int* arr, int size)
+void ProductArrayWithoutDivision(int* arr, int* result, int size)
 {
 	int* ascendingArr = new int[size];
 
@@ -58,13 +53,20 @@ void ProductArrayWithoutDivision(int* arr, int size)
 		product *= arr[i];
 	}
 
-	int* products = new int[size];
-
 	for (int i = 0; i < size; ++i)
 	{
-		products[i] = ascendingArr[i] * descendingArr[i];
-		std::cout << products[i] << std::endl;
+		result[i] = ascendingArr[i] * descendingArr[i];
 	}
+}
+
+void printArray(int* array, int size)
+{
+	for (int i = 0; i < size; ++i)
+	{
+		std::cout << array[i] << ",";
+	}
+
+	std::cout << std::endl;
 }
 
 #ifdef _02_ArrayOfProducts
@@ -73,18 +75,23 @@ int main()
 	int firstTest[] = { 1, 2, 3, 4, 5 };
 	int secondTest[] = { 3, 2, 1 };
 
+	int* resultArray1 = new int[ARRAY_SIZE(firstTest)];
+	int* resultArray2 = new int[ARRAY_SIZE(secondTest)];
+
 	std::cout << "With Division: " << std::endl;
-	ProductArrayWithDivision(firstTest, ARRAY_SIZE(firstTest));
+	ProductArrayWithDivision(firstTest, resultArray1, ARRAY_SIZE(firstTest));
+	printArray(resultArray1, ARRAY_SIZE(firstTest));
 
-	std::cout << std::endl;
-
-	ProductArrayWithDivision(secondTest, ARRAY_SIZE(secondTest));
+	ProductArrayWithDivision(secondTest, resultArray2, ARRAY_SIZE(secondTest));
+	printArray(resultArray2, ARRAY_SIZE(secondTest));
 
 	std::cout << std::endl << "Without Division: " << std::endl;
-	ProductArrayWithoutDivision(firstTest, ARRAY_SIZE(firstTest));
+	ProductArrayWithoutDivision(firstTest, resultArray1, ARRAY_SIZE(firstTest));
+	printArray(resultArray1, ARRAY_SIZE(firstTest));
 
 	std::cout << std::endl;
 
-	ProductArrayWithoutDivision(secondTest, ARRAY_SIZE(secondTest));
+	ProductArrayWithoutDivision(secondTest, resultArray2, ARRAY_SIZE(secondTest));
+	printArray(resultArray2, ARRAY_SIZE(secondTest));
 }
 #endif
