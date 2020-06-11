@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="src\01_CheckSumInArray.cpp" />
     <ClCompile Include="src\02_ArrayOfProducts.cpp" />
+    <ClCompile Include="src\04_MissingInteger.cpp" />
     <ClCompile Include="src\08_UnivalTree.cpp" />
     <ClCompile Include="src\16_LastOrders.cpp" />
     <ClCompile Include="src\20_IntersectNode.cpp" />

@@ -3,7 +3,8 @@
 #include <iostream>
 
 //#define 01_CheckSumInArray
-#define _02_ArrayOfProducts
+//#define _02_ArrayOfProducts
+//#define _04_MissingInteger
 //#define 08_UnivalTree
 //#define 16_LastOrders
 //#define _20_IntersectNode
