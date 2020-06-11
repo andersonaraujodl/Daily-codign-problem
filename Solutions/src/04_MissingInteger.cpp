@@ -19,26 +19,30 @@ int FindMissingInt(std::vector<int> &vec)
 
 	int missing = 1;
 
-	for(int i = 0; i < vec.size(); ++i)
+	for(const auto &e : vec)
 	{
-		if (vec[i] == missing)
+		if (e == missing)
 			++missing;
+		else if (missing > 1)
+			return missing;
 	}
 
 	return missing;
 }
 
-//#ifdef _04_MissingInteger
+#ifdef _04_MissingInteger
 int main()
 {
 	std::vector<int> caseTest1 = {3, 4, -1};
 	std::vector<int> caseTest2 = { 1, 2, 0};
 	std::vector<int> caseTest3 = { -1 };
 	std::vector<int> caseTest4 = { 6, 2, 5, 4, 1, 3, 7 };
+	std::vector<int> caseTest5 = { 6, 2, 5, 1, 3, 7 };
 
 	std::cout << "First missing positive int is: " << FindMissingInt(caseTest1)  << std::endl;
 	std::cout << "First missing positive int is: " << FindMissingInt(caseTest2) << std::endl;
 	std::cout << "First missing positive int is: " << FindMissingInt(caseTest3) << std::endl;
 	std::cout << "First missing positive int is: " << FindMissingInt(caseTest4) << std::endl;
+	std::cout << "First missing positive int is: " << FindMissingInt(caseTest5) << std::endl;
 }
-//#endif
+#endif
