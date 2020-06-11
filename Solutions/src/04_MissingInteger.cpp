@@ -21,6 +21,8 @@ int FindMissingInt(std::vector<int> &vec)
 
 	for(const auto &e : vec)
 	{
+		if (e <= 0)
+			continue;
 		if (e == missing)
 			++missing;
 		else if (missing > 1)
