@@ -15,14 +15,12 @@ Time: from 23:30 to 23:50
 
 int FindMissingInt(std::vector<int> &vec)
 {
-	std::sort(vec.begin(), vec.end());
+	std::sort(vec.begin(), vec.end(), [](int& a, int& b) { return (a <= 0) ? (b < a) : (a < b); });
 
 	int missing = 1;
 
 	for(const auto &e : vec)
 	{
-		if (e <= 0)
-			continue;
 		if (e == missing)
 			++missing;
 		else if (missing > 1)
