@@ -4,7 +4,7 @@
  For example, given s = "abcbabbccbb" and k = 2, the longest substring with k distinct characters is "bcb".
 
  Date: 29/06/2020
- Time: From 19h30 to 20h06
+ Time: From 19h30 to 20h06 (this is not optmized T_T)
 */
 
 #include "const.h"
@@ -37,7 +37,6 @@ std::string LongestString(std::string s, int k)
 					break;
 				}
 			}
-			
 		}
 
 		if (subString.size() > longestString.size())
@@ -52,12 +51,15 @@ int main()
 	std::string test1 = "abcba"; //->bcb
 	std::string test2 = "abcbabbccbb"; //->bbccbb
 	std::string test3 = "hehhaiaii"; // ->aiaii
-	std::string test4 = "abcba"; //->bcb
-	std::string test5 = "aabcbcbcbcbcbabc"; // -> bcbcbcbcbcb
+	std::string test4 = "aabcbcbcbcbcbabc"; // 2 ->bcbcbcbcbcb  ~ 3 -> aabcbcbcbcbcbabc
+	std::string test5 = "uxiiayhwuahu"; // ->uxii
 
 	std::cout << "abcba (2) - " << LongestString(test1, 2) << std::endl;
 	std::cout << "abcbabbccbb (2) - " << LongestString(test2, 2) << std::endl;
 	std::cout << "hehhaiaii (2) - " << LongestString(test3, 2) << std::endl;
-	std::cout << "abcba (2) - " << LongestString(test4, 2) << std::endl;
-	std::cout << "aabcbcbcbcbcbabc (2) - " << LongestString(test5, 2) << std::endl;
+	std::cout << "aabcbcbcbcbcbabc (2) - " << LongestString(test4, 2) << std::endl;
+	std::cout << "aabcbcbcbcbcbabc (3) - " << LongestString(test4, 3) << std::endl;
+	std::cout << "uxiiayhwuahu (3) - " << LongestString(test5, 3) << std::endl;
+	std::cout << "uxiiayhwuahu (4) - " << LongestString(test5, 4) << std::endl;
+
 }
