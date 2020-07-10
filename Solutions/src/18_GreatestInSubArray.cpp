@@ -46,12 +46,34 @@ void MaxFromSubArrays(int* arr, size_t size, int k, int startingIndex = 0)
 
 int main()
 {
-	int array1[] = { 10, 5, 2, 7, 8, 7 };
-	int k = 3;
+	int array1[] = { 10, 5, 2, 7, 8, 7 }; 
+	int k1 = 3; //[10, 7, 8, 8]
+	int k2 = 4; //[10, 8, 8]
 
-	MaxFromSubArrays(array1, ARRAY_SIZE(array1), k);
+	int array2[] = { -5, -2, -1, -3, 11, 11, -1, 12}; // [-1, 11, 11, 11, 12]
+	int k3 = 4;
 
-	std::cout << "The highets values from the subarrays of size " << k << " are: " << std::endl;
+	MaxFromSubArrays(array1, ARRAY_SIZE(array1), k1);
+
+	std::cout << "The highets values from the subarrays of size " << k1 << " are: " << std::endl;
+	for (size_t i = 0; i < result.size(); ++i)
+	{
+		std::cout << result[i] << ", ";
+	}
+
+	result.clear();
+	MaxFromSubArrays(array1, ARRAY_SIZE(array1), k2);
+	
+	std::cout << std::endl << "The highets values from the subarrays of size " << k2 << " are: " << std::endl;
+	for (size_t i = 0; i < result.size(); ++i)
+	{
+		std::cout << result[i] << ", ";
+	}
+
+	result.clear();
+	MaxFromSubArrays(array2, ARRAY_SIZE(array2), k3);
+
+	std::cout << std::endl << "The highets values from the subarrays of size " << k3 << " are: " << std::endl;
 	for (size_t i = 0; i < result.size(); ++i)
 	{
 		std::cout << result[i] << ", ";
