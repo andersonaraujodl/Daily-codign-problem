@@ -146,6 +146,8 @@
     <ClCompile Include="src\09_LargestSum.cpp" />
     <ClCompile Include="src\13_LongestSubstring.cpp" />
     <ClCompile Include="src\16_LastOrders.cpp" />
+    <ClCompile Include="src\17_LongestStringPath.cpp" />
+    <ClCompile Include="src\18_GreatestInSubArray.cpp" />
     <ClCompile Include="src\20_IntersectNode.cpp" />
     <ClCompile Include="src\21_NumberOfRooms.cpp" />
     <ClCompile Include="src\29_RunLengthEncoding.cpp" />

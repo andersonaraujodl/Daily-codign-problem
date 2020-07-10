@@ -111,9 +111,11 @@ std::string hard_17(std::string fileSys) {
     return longestPath;
 }
 
+#ifdef _17_LongestStringPath
 int main()
 {
     std::string dir1 = "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext";
     std::cout << "Dir 1: " << hard_17(dir1) << std::endl;
     std::cout << "Expected result Dir 1: " << "dir/subdir2/subsubdir2/file2.ext" << std::endl;
 }
+#endif

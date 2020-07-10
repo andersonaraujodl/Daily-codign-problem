@@ -46,6 +46,7 @@ std::string LongestString(std::string s, int k)
 	return longestString;
 }
 
+#ifdef _13LongestSubstring
 int main()
 {
 	std::string test1 = "abcba"; //->bcb
@@ -63,3 +64,5 @@ int main()
 	std::cout << "uxiiayhwuahu (4) - " << LongestString(test5, 4) << std::endl;
 
 }
+
+#endif
