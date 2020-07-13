@@ -75,5 +75,13 @@
     <ClCompile Include="src\18_GreatestInSubArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="25_RegexValidation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="const.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

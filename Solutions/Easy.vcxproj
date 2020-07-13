@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="25_RegexValidation.cpp" />
     <ClCompile Include="src\01_CheckSumInArray.cpp" />
     <ClCompile Include="src\02_ArrayOfProducts.cpp" />
     <ClCompile Include="src\04_MissingInteger.cpp" />
@@ -159,6 +160,9 @@
     <ClCompile Include="src\50_ArithmeticTree.cpp" />
     <ClCompile Include="src\55_URL_Shortener.cpp" />
     <ClCompile Include="src\63_WordSearchPuzzle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="const.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

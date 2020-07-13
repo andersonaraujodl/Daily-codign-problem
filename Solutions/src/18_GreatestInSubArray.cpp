@@ -44,6 +44,7 @@ void MaxFromSubArrays(int* arr, size_t size, int k, int startingIndex = 0)
 	}
 }
 
+#ifdef _18_GreaterInSubArray
 int main()
 {
 	int array1[] = { 10, 5, 2, 7, 8, 7 }; 
@@ -79,3 +80,4 @@ int main()
 		std::cout << result[i] << ", ";
 	}
 }
+#endif //  _18_GreaterInSubArray
