@@ -51,6 +51,7 @@ bool validateRegex(std::string original, std::string regex)
 	return true;
 }
 
+#ifdef _25_RegexValidation
 int main()
 {
 	std::string original1 = "chat";
@@ -73,3 +74,4 @@ int main()
 	std::cout << "Validate " << original6 << " with Regex: " << regex2 << ": " << validateRegex(original6, regex2) << std::endl;
 	std::cout << "Validate " << original6 << " with Regex: " << regex3 << ": " << validateRegex(original6, regex3) << std::endl;
 }
+#endif

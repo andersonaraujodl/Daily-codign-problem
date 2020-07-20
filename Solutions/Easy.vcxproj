@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="25_RegexValidation.cpp" />
+    <ClCompile Include="35_SortRGB.cpp" />
     <ClCompile Include="src\01_CheckSumInArray.cpp" />
     <ClCompile Include="src\02_ArrayOfProducts.cpp" />
     <ClCompile Include="src\04_MissingInteger.cpp" />
