@@ -6,26 +6,40 @@ Do this in linear time and in-place.
 For example, given the array ['G', 'B', 'R', 'R', 'B', 'R', 'G'], it should become ['R', 'R', 'R', 'G', 'G', 'B', 'B'].
 
 Date: 20/07/2020
-Time: 18:15 to 
+Time: 18:15 to 19h (45 minutes T_T But hey! It was with bug fixes)
 */
 
 #include "const.h"
 
 #define SIZE_ARRAY(array) (sizeof(array)/sizeof(array[0]))
 
-void SortSequence(char *arr, size_t size)
+void SortSequence(char* arr, size_t size)
 {
 	int begin = 0;
 	int end = size - 1;
 
-	for (int i = 0; i < end; ++i)
+	while (arr[begin] == 'R')
+	{
+		++begin;
+	}
+
+	int i = begin;
+
+	while (arr[end] == 'B')
+	{
+		--end;
+	}
+
+	while (i <= end)
 	{
 		if (arr[i] == 'R')
 		{
+
 			char holder = arr[begin];
 			arr[begin] = arr[i];
 			arr[i] = holder;
 			++begin;
+			++i;
 		}
 		else if (arr[i] == 'B')
 		{
@@ -33,6 +47,10 @@ void SortSequence(char *arr, size_t size)
 			arr[end] = arr[i];
 			arr[i] = holder;
 			--end;
+		}
+		else
+		{
+			++i;
 		}
 	}
 }
