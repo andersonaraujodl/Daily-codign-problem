@@ -15,6 +15,9 @@ Time: 18:15 to 19h (45 minutes T_T But hey! It was with bug fixes)
 
 void SortSequence(char* arr, size_t size)
 {
+	if (size <= 1)
+		return;
+
 	int begin = 0;
 	int end = size - 1;
 
@@ -30,12 +33,12 @@ void SortSequence(char* arr, size_t size)
 		--end;
 	}
 
+	char holder;
 	while (i <= end)
 	{
 		if (arr[i] == 'R')
 		{
-
-			char holder = arr[begin];
+			holder = arr[begin];
 			arr[begin] = arr[i];
 			arr[i] = holder;
 			++begin;
@@ -43,7 +46,7 @@ void SortSequence(char* arr, size_t size)
 		}
 		else if (arr[i] == 'B')
 		{
-			char holder = arr[end];
+			holder = arr[end];
 			arr[end] = arr[i];
 			arr[i] = holder;
 			--end;
@@ -55,6 +58,7 @@ void SortSequence(char* arr, size_t size)
 	}
 }
 
+#ifdef _35_SortRGB
 int main()
 {
 	char a[] = { 'G', 'B', 'R', 'R', 'B', 'R', 'G' };
@@ -63,4 +67,18 @@ int main()
 
 	for (size_t i = 0; i < SIZE_ARRAY(a); ++i)
 		std::cout << a[i] << ", ";
+
+	std::cout << std::endl;
+
+	char b[] = { 'B', 'B', 'G', 'R', 'B', 'R', 'G', 'B', 'G', 'B', 'R', 'B' };
+
+	SortSequence(b, SIZE_ARRAY(b));
+
+	for (size_t i = 0; i < SIZE_ARRAY(b); ++i)
+		std::cout << b[i] << ", ";
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
 }
+#endif

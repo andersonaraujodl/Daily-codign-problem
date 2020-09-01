@@ -141,6 +141,8 @@
   <ItemGroup>
     <ClCompile Include="25_RegexValidation.cpp" />
     <ClCompile Include="35_SortRGB.cpp" />
+    <ClCompile Include="38_NumberOfQueens.cpp" />
+    <ClCompile Include="40_SingleInteger.cpp" />
     <ClCompile Include="src\01_CheckSumInArray.cpp" />
     <ClCompile Include="src\02_ArrayOfProducts.cpp" />
     <ClCompile Include="src\04_MissingInteger.cpp" />

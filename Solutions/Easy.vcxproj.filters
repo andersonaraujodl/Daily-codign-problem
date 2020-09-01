@@ -81,6 +81,12 @@
     <ClCompile Include="35_SortRGB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="38_NumberOfQueens.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="40_SingleInteger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="const.h">
